@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#1E4D2B">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Mi tarjeta">
+
+  <title>Mi tarjeta</title>
+
+  <link rel="apple-touch-icon" href="mi-tarjeta-192.png">
+  <link rel="icon" type="image/png" href="mi-tarjeta-512.png">
+</head>
+
+<body>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  if (id) {
+    window.location.replace(
+      'https://script.google.com/macros/s/AKfycbwIiCTru7nGzpy6eiJWtOahMyphdVFOTXQdxCBcp2GvQD7quv16LNtWfYevu6RtaTm2Sw/exec?id='
+      + encodeURIComponent(id)
+    );
+  }
+</script>
+
+</body>
+</html>
