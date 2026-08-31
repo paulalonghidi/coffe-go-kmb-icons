@@ -2,34 +2,148 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="theme-color" content="#1E4D2B">
+
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Mi tarjeta">
+
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Mi tarjeta">
 
   <title>Mi tarjeta</title>
 
-  <link rel="apple-touch-icon" href="mi-tarjeta-192.png">
-  <link rel="icon" type="image/png" href="mi-tarjeta-512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="mi-tarjeta-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="mi-tarjeta-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="mi-tarjeta-512.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #F5F0EB;
+      font-family: Arial, sans-serif;
+      color: #1E4D2B;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 360px;
+      background: #FFFDFC;
+      border: 2px solid #D2B48C;
+      border-radius: 24px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 28px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 27px;
+      font-weight: 800;
+      color: #1E4D2B;
+    }
+
+    .subtitle {
+      margin: 0 0 22px;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #5F7D68;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px 18px;
+      border: none;
+      border-radius: 14px;
+      background: #1E4D2B;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .id {
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #5F7D68;
+    }
+
+    .error {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #1E4D2B;
+    }
+  </style>
 </head>
 
 <body>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
+  <div class="card">
 
-  if (id) {
-    const cardUrl =
-      'https://script.google.com/macros/s/AKfycbwIiCTru7nGzpy6eiJWtOahMyphdVFOTXQdxCBcp2GvQD7quv16LNtWfYevu6RtaTm2Sw/exec?id='
-      + encodeURIComponent(id);
+    <img
+      class="logo"
+      src="mi-tarjeta-512.png"
+      alt="COFFEE & GO kmb - Mi tarjeta"
+    >
 
-    window.location.replace(cardUrl);
-  } else {
-    document.body.innerHTML = 'No se encontró el ID del cliente.';
-  }
-</script>
+    <h1>MI TARJETA</h1>
+
+    <p class="subtitle">
+      Guarda este acceso en tu teléfono y úsalo cada vez que compres un café.
+    </p>
+
+    <div id="contenido"></div>
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const contenido = document.getElementById('contenido');
+
+    if (id) {
+
+      const cardUrl =
+        'https://script.google.com/macros/s/AKfycbwIiCTru7nGzpy6eiJWtOahMyphdVFOTXQdxCBcp2GvQD7quv16LNtWfYevu6RtaTm2Sw/exec?id='
+        + encodeURIComponent(id);
+
+      contenido.innerHTML =
+        '<button id="abrirTarjeta">ABRIR MI TARJETA</button>' +
+        '<div class="id">' + id + '</div>';
+
+      document
+        .getElementById('abrirTarjeta')
+        .addEventListener('click', function() {
+          window.location.href = cardUrl;
+        });
+
+    } else {
+
+      contenido.innerHTML =
+        '<div class="error">No se encontró el ID de esta tarjeta.</div>';
+    }
+  </script>
 
 </body>
 </html>
