@@ -17,31 +17,23 @@
 
   <title>Mi Tarjeta</title>
 
-  <!-- ICONO IPHONE -->
   <link
     rel="apple-touch-icon"
-    href="./mi-tarjeta-192.png"
+    sizes="192x192"
+    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
   >
 
-  <!-- ICONOS NAVEGADOR -->
   <link
     rel="icon"
     type="image/png"
     sizes="192x192"
-    href="./mi-tarjeta-192.png"
+    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
   >
 
   <link
-    rel="icon"
+    rel="shortcut icon"
     type="image/png"
-    sizes="512x512"
-    href="./mi-tarjeta-512.png"
-  >
-
-  <!-- CONFIGURACIÓN ANDROID / PWA -->
-  <link
-    rel="manifest"
-    href="./manifest.json"
+    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
   >
 
   <link
@@ -185,7 +177,7 @@
 
     <img
       class="logo"
-      src="./mi-tarjeta-512.png"
+      src="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-512.png"
       alt="COFFEE & GO kmb - Mi tarjeta"
     >
 
@@ -222,15 +214,10 @@
   </div>
 
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
 
-    const params =
-      new URLSearchParams(window.location.search);
-
-    const id =
-      params.get('id');
-
-    const contenido =
-      document.getElementById('contenido');
+    const contenido = document.getElementById('contenido');
 
     if (id) {
 
@@ -240,26 +227,20 @@
 
       contenido.innerHTML =
         '<button id="abrirTarjeta">ABRIR MI TARJETA</button>' +
-        '<div class="id">' +
-        id +
-        '</div>';
+        '<div class="id">' + id + '</div>';
 
       document
         .getElementById('abrirTarjeta')
-        .addEventListener(
-          'click',
-          function() {
-            window.location.href =
-              cardUrl;
-          }
-        );
+        .addEventListener('click', function() {
+          window.location.href = cardUrl;
+        });
 
     } else {
 
       contenido.innerHTML =
         '<div class="error">No se encontró el ID de esta tarjeta.</div>';
-    }
 
+    }
   </script>
 
 </body>
