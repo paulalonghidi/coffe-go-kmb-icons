@@ -1,8 +1,6 @@
 {
   "name": "COFFEE & GO kmb - Mi Tarjeta",
   "short_name": "Mi Tarjeta",
-  "start_url": "./mi-tarjeta.html",
-  "scope": "./",
   "display": "standalone",
   "background_color": "#F5F0EB",
   "theme_color": "#1E4D2B",
@@ -18,6 +16,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "./mi-tarjeta-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
