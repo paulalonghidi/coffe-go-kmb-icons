@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
 
@@ -9,16 +10,39 @@
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mi tarjeta">
+  <meta name="apple-mobile-web-app-title" content="Mi Tarjeta">
 
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Mi tarjeta">
+  <meta name="application-name" content="Mi Tarjeta">
 
-  <title>Mi tarjeta</title>
+  <title>Mi Tarjeta</title>
 
-  <link rel="apple-touch-icon" sizes="192x192" href="mi-tarjeta-192.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="mi-tarjeta-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="mi-tarjeta-512.png">
+  <!-- ICONO IPHONE -->
+  <link
+    rel="apple-touch-icon"
+    href="./mi-tarjeta-192.png"
+  >
+
+  <!-- ICONOS NAVEGADOR -->
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="./mi-tarjeta-192.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="./mi-tarjeta-512.png"
+  >
+
+  <!-- CONFIGURACIÓN ANDROID / PWA -->
+  <link
+    rel="manifest"
+    href="./manifest.json"
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
@@ -161,7 +185,7 @@
 
     <img
       class="logo"
-      src="mi-tarjeta-512.png"
+      src="./mi-tarjeta-512.png"
       alt="COFFEE & GO kmb - Mi tarjeta"
     >
 
@@ -183,12 +207,12 @@
 
       <p class="instruccion">
         <strong>iPhone:</strong>
-        abre tu tarjeta en Safari, toca Compartir y luego “Añadir a pantalla de inicio”.
+        abre esta página en Safari, toca Compartir y luego “Añadir a pantalla de inicio”.
       </p>
 
       <p class="instruccion">
         <strong>Android:</strong>
-        abre tu tarjeta en Chrome, toca el menú de tres puntos y luego “Añadir a pantalla de inicio”.
+        abre esta página en Chrome, toca el menú de tres puntos y luego “Añadir a pantalla de inicio”.
       </p>
 
     </div>
@@ -198,10 +222,15 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
 
-    const contenido = document.getElementById('contenido');
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const id =
+      params.get('id');
+
+    const contenido =
+      document.getElementById('contenido');
 
     if (id) {
 
@@ -211,19 +240,26 @@
 
       contenido.innerHTML =
         '<button id="abrirTarjeta">ABRIR MI TARJETA</button>' +
-        '<div class="id">' + id + '</div>';
+        '<div class="id">' +
+        id +
+        '</div>';
 
       document
         .getElementById('abrirTarjeta')
-        .addEventListener('click', function() {
-          window.location.href = cardUrl;
-        });
+        .addEventListener(
+          'click',
+          function() {
+            window.location.href =
+              cardUrl;
+          }
+        );
 
     } else {
 
       contenido.innerHTML =
         '<div class="error">No se encontró el ID de esta tarjeta.</div>';
     }
+
   </script>
 
 </body>
