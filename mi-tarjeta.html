@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
 
@@ -15,7 +14,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Mi Tarjeta">
 
-  <title>Mi Tarjeta</title>
+  <title>Mi Tarjeta - COFFEE & GO kmb</title>
 
   <link
     rel="apple-touch-icon"
@@ -36,188 +35,49 @@
     href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
   >
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      width: 100%;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
       background: #F5F0EB;
-      font-family: 'Montserrat', sans-serif;
-      color: #1E4D2B;
+      font-family: Arial, sans-serif;
     }
 
-    .card {
-      width: 100%;
-      max-width: 520px;
-      background: #FFFDFC;
-      border: 2px solid #D2B48C;
-      border-radius: 24px;
-      padding: 28px 22px;
+    .cargando {
       text-align: center;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+      color: #1E4D2B;
+      font-size: 16px;
+      font-weight: 600;
     }
 
     .logo {
-      width: 150px;
-      height: 150px;
-      border-radius: 28px;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 27px;
-      font-weight: 800;
-      color: #1E4D2B;
-    }
-
-    .subtitle {
-      margin: 0 0 22px;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.5;
-      color: #5F7D68;
-    }
-
-    .guardar {
-      margin: 0 0 22px;
-      padding: 18px;
-      background: #F5F0EB;
-      border-radius: 16px;
-      text-align: left;
-    }
-
-    .guardar-titulo {
-      margin: 0 0 10px;
-      font-size: 15px;
-      font-weight: 800;
-      text-align: center;
-      color: #1E4D2B;
-    }
-
-    .guardar-texto {
-      margin: 0 0 12px;
-      font-size: 13px;
-      font-weight: 500;
-      line-height: 1.5;
-      text-align: center;
-      color: #5F7D68;
-    }
-
-    .instruccion {
-      margin: 10px 0 0;
-      font-size: 13px;
-      line-height: 1.5;
-      color: #1E4D2B;
-    }
-
-    .instruccion strong {
-      font-weight: 700;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px 18px;
-      border: none;
-      border-radius: 14px;
-      background: #1E4D2B;
-      color: white;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .id {
-      margin-top: 16px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #5F7D68;
-    }
-
-    .error {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #1E4D2B;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 14px;
-      }
-
-      .card {
-        padding: 24px 18px;
-      }
-
-      .logo {
-        width: 125px;
-        height: 125px;
-      }
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      display: block;
+      margin: 0 auto 18px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
-
+  <div class="cargando">
     <img
       class="logo"
       src="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-512.png"
-      alt="COFFEE & GO kmb - Mi tarjeta"
+      alt="COFFEE & GO kmb"
     >
 
-    <h1>MI TARJETA</h1>
-
-    <p class="subtitle">
-      Tu tarjeta ya está lista.
-    </p>
-
-    <div class="guardar">
-
-      <div class="guardar-titulo">
-        GUARDA TU TARJETA EN TU TELÉFONO
-      </div>
-
-      <p class="guardar-texto">
-        Agrégala a la pantalla de inicio para tenerla siempre a mano.
-      </p>
-
-      <p class="instruccion">
-        <strong>iPhone:</strong>
-        abre esta página en Safari, toca Compartir y luego “Añadir a pantalla de inicio”.
-      </p>
-
-      <p class="instruccion">
-        <strong>Android:</strong>
-        abre esta página en Chrome, toca el menú de tres puntos y luego “Añadir a pantalla de inicio”.
-      </p>
-
-    </div>
-
-    <div id="contenido"></div>
-
+    Abriendo tu tarjeta...
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-
-    const contenido = document.getElementById('contenido');
 
     if (id) {
 
@@ -225,20 +85,12 @@
         'https://script.google.com/macros/s/AKfycbwIiCTru7nGzpy6eiJWtOahMyphdVFOTXQdxCBcp2GvQD7quv16LNtWfYevu6RtaTm2Sw/exec?id='
         + encodeURIComponent(id);
 
-      contenido.innerHTML =
-        '<button id="abrirTarjeta">ABRIR MI TARJETA</button>' +
-        '<div class="id">' + id + '</div>';
-
-      document
-        .getElementById('abrirTarjeta')
-        .addEventListener('click', function() {
-          window.location.href = cardUrl;
-        });
+      window.location.replace(cardUrl);
 
     } else {
 
-      contenido.innerHTML =
-        '<div class="error">No se encontró el ID de esta tarjeta.</div>';
+      document.querySelector('.cargando').innerHTML =
+        'No se encontró el ID de esta tarjeta.';
 
     }
   </script>
