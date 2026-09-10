@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta name="theme-color" content="#1E4D2B">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mi Tarjeta">
-
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Mi Tarjeta">
-
-  <title>Mi Tarjeta - COFFEE & GO kmb</title>
+  <title>Mi tarjeta COFFEE & GO kmb</title>
 
   <link
     rel="apple-touch-icon"
-    sizes="192x192"
-    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
+    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-512.png"
   >
 
   <link
     rel="icon"
     type="image/png"
-    sizes="192x192"
-    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
+    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-512.png"
   >
 
   <link
-    rel="shortcut icon"
-    type="image/png"
-    href="https://paulalonghidi.github.io/coffe-go-kmb-icons/mi-tarjeta-192.png"
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -48,12 +30,11 @@
 
     body {
       margin: 0;
-      width: 100%;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 20px;
       background: #F5F0EB;
       font-family: 'Montserrat', sans-serif;
       color: #1E4D2B;
@@ -61,53 +42,46 @@
 
     .card {
       width: 100%;
-      max-width: 520px;
+      max-width: 460px;
       background: #FFFDFC;
       border: 2px solid #D2B48C;
       border-radius: 24px;
       padding: 28px 22px;
-      text-align: center;
       box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+      text-align: center;
     }
 
     .logo {
-      width: 135px;
-      height: 135px;
-      border-radius: 26px;
-      margin-bottom: 16px;
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 27px;
+      margin: 0 0 12px;
+      font-size: 24px;
       font-weight: 800;
     }
 
-    .subtitle {
-      margin: 0 0 22px;
+    .texto {
+      margin: 0 0 18px;
       font-size: 14px;
-      line-height: 1.5;
-      color: #5F7D68;
+      line-height: 1.6;
     }
 
-    .guardar {
-      margin-bottom: 20px;
+    .pasos {
+      margin: 20px 0;
       padding: 18px;
       background: #F5F0EB;
       border-radius: 16px;
-    }
-
-    .guardar-titulo {
-      margin-bottom: 10px;
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    .instruccion {
-      margin: 9px 0;
-      font-size: 13px;
-      line-height: 1.5;
       text-align: left;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .pasos strong {
+      color: #1E4D2B;
     }
 
     button {
@@ -121,35 +95,24 @@
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
+      margin-top: 6px;
     }
 
-    .id {
-      margin-top: 14px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #5F7D68;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 14px;
-      }
-
-      .card {
-        padding: 24px 18px;
-      }
-
-      .logo {
-        width: 120px;
-        height: 120px;
-      }
+    .error {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      background: #F5F0EB;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card" id="contenido">
+  <div class="card">
 
     <img
       class="logo"
@@ -157,87 +120,113 @@
       alt="COFFEE & GO kmb"
     >
 
-    <h1>MI TARJETA</h1>
+    <h1>GUARDA TU TARJETA</h1>
 
-    <p class="subtitle">
-      Tu tarjeta de cliente frecuente ya está lista.
+    <p class="texto">
+      Guarda esta página en la pantalla de inicio de tu teléfono.
+      Así tendrás siempre tu tarjeta COFFEE & GO kmb a mano.
     </p>
 
-    <div class="guardar">
+    <div class="pasos">
+      <strong>En iPhone:</strong><br>
+      1. Toca Compartir.<br>
+      2. Elige “Agregar a pantalla de inicio”.<br>
+      3. Toca “Agregar”.<br><br>
 
-      <div class="guardar-titulo">
-        PRIMERO GUARDA TU TARJETA
-      </div>
-
-      <p class="instruccion">
-        <strong>iPhone:</strong>
-        abre esta página en Safari, toca Compartir y luego
-        “Añadir a pantalla de inicio”.
-      </p>
-
-      <p class="instruccion">
-        <strong>Android:</strong>
-        abre esta página en Chrome, toca los tres puntos y luego
-        “Añadir a pantalla de inicio”.
-      </p>
-
+      <strong>En Android:</strong><br>
+      1. Abre el menú del navegador.<br>
+      2. Elige “Agregar a pantalla principal” o “Instalar”.<br>
+      3. Confirma.
     </div>
 
-    <button id="yaGuarde">
+    <button id="yaGuarde" type="button">
       YA GUARDÉ MI TARJETA
     </button>
 
-    <div class="id" id="mostrarId"></div>
+    <div class="error" id="error">
+      No pudimos abrir tu tarjeta.
+    </div>
 
   </div>
 
   <script>
-
     const params = new URLSearchParams(window.location.search);
+
     const id = params.get('id');
+    const nuevo = params.get('nuevo') === '1';
+
+    const boton = document.getElementById('yaGuarde');
+    const error = document.getElementById('error');
 
     const WEB_APP_URL =
       'https://script.google.com/macros/s/AKfycbwIiCTru7nGzpy6eiJWtOahMyphdVFOTXQdxCBcp2GvQD7quv16LNtWfYevu6RtaTm2Sw/exec';
 
-    const boton = document.getElementById('yaGuarde');
-    const mostrarId = document.getElementById('mostrarId');
-
     if (!id) {
-
-      boton.style.display = 'none';
-      mostrarId.textContent = 'No se encontró el ID de esta tarjeta.';
-
+      boton.disabled = true;
+      error.style.display = 'block';
     } else {
 
-      mostrarId.textContent = id;
-
       const cardUrl =
-        WEB_APP_URL + '?id=' + encodeURIComponent(id);
+        WEB_APP_URL +
+        '?id=' +
+        encodeURIComponent(id);
 
       const claveGuardada =
         'coffee_go_tarjeta_guardada_' + id;
 
-      const yaFueGuardada =
-        localStorage.getItem(claveGuardada);
+      /*
+       * Si el cliente acaba de registrarse:
+       * SIEMPRE mostramos esta pantalla.
+       *
+       * Esto evita que información guardada anteriormente
+       * en el navegador haga que se salten las instrucciones.
+       */
+      if (nuevo) {
+        localStorage.removeItem(claveGuardada);
 
-      if (yaFueGuardada === 'si') {
+        /*
+         * Quitamos "nuevo=1" de la URL que se guardará
+         * en la pantalla de inicio.
+         *
+         * De esta forma, el icono guardado tendrá solamente:
+         * mi-tarjeta.html?id=KMB-xxxx
+         */
+        const urlLimpia =
+          window.location.pathname +
+          '?id=' +
+          encodeURIComponent(id);
 
-        window.location.replace(cardUrl);
+        window.history.replaceState(
+          {},
+          '',
+          urlLimpia
+        );
 
       } else {
 
-        boton.addEventListener('click', function () {
+        /*
+         * Cuando el cliente abre después el icono:
+         * si ya confirmó que lo guardó,
+         * entra directamente a su tarjeta.
+         */
+        const yaFueGuardada =
+          localStorage.getItem(claveGuardada);
 
-          localStorage.setItem(claveGuardada, 'si');
-
-          window.location.href = cardUrl;
-
-        });
-
+        if (yaFueGuardada === 'si') {
+          window.location.replace(cardUrl);
+        }
       }
 
-    }
+      boton.addEventListener('click', function () {
 
+        localStorage.setItem(
+          claveGuardada,
+          'si'
+        );
+
+        window.location.href = cardUrl;
+      });
+    }
   </script>
 
 </body>
