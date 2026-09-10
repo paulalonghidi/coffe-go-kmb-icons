@@ -149,7 +149,7 @@
 
 <body>
 
-  <div class="card">
+  <div class="card" id="contenido">
 
     <img
       class="logo"
@@ -166,7 +166,7 @@
     <div class="guardar">
 
       <div class="guardar-titulo">
-        GUARDA TU TARJETA EN TU TELÉFONO
+        PRIMERO GUARDA TU TARJETA
       </div>
 
       <p class="instruccion">
@@ -183,8 +183,8 @@
 
     </div>
 
-    <button id="abrirTarjeta">
-      ABRIR MI TARJETA
+    <button id="yaGuarde">
+      YA GUARDÉ MI TARJETA
     </button>
 
     <div class="id" id="mostrarId"></div>
@@ -192,36 +192,52 @@
   </div>
 
   <script>
+
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
     const WEB_APP_URL =
       'https://script.google.com/macros/s/AKfycbwIiCTru7nGzpy6eiJWtOahMyphdVFOTXQdxCBcp2GvQD7quv16LNtWfYevu6RtaTm2Sw/exec';
 
-    const boton = document.getElementById('abrirTarjeta');
+    const boton = document.getElementById('yaGuarde');
     const mostrarId = document.getElementById('mostrarId');
 
     if (!id) {
+
       boton.style.display = 'none';
       mostrarId.textContent = 'No se encontró el ID de esta tarjeta.';
+
     } else {
+
       mostrarId.textContent = id;
 
       const cardUrl =
         WEB_APP_URL + '?id=' + encodeURIComponent(id);
 
-      boton.addEventListener('click', function () {
-        window.location.href = cardUrl;
-      });
+      const claveGuardada =
+        'coffee_go_tarjeta_guardada_' + id;
 
-      const abiertaComoApp =
-        window.matchMedia('(display-mode: standalone)').matches ||
-        window.navigator.standalone === true;
+      const yaFueGuardada =
+        localStorage.getItem(claveGuardada);
 
-      if (abiertaComoApp) {
+      if (yaFueGuardada === 'si') {
+
         window.location.replace(cardUrl);
+
+      } else {
+
+        boton.addEventListener('click', function () {
+
+          localStorage.setItem(claveGuardada, 'si');
+
+          window.location.href = cardUrl;
+
+        });
+
       }
+
     }
+
   </script>
 
 </body>
