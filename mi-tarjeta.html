@@ -192,7 +192,6 @@
   </div>
 
   <script>
-
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
@@ -203,23 +202,26 @@
     const mostrarId = document.getElementById('mostrarId');
 
     if (!id) {
-
       boton.style.display = 'none';
       mostrarId.textContent = 'No se encontró el ID de esta tarjeta.';
-
     } else {
-
       mostrarId.textContent = id;
 
+      const cardUrl =
+        WEB_APP_URL + '?id=' + encodeURIComponent(id);
+
       boton.addEventListener('click', function () {
-
-        window.location.href =
-          WEB_APP_URL + '?id=' + encodeURIComponent(id);
-
+        window.location.href = cardUrl;
       });
 
-    }
+      const abiertaComoApp =
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true;
 
+      if (abiertaComoApp) {
+        window.location.replace(cardUrl);
+      }
+    }
   </script>
 
 </body>
